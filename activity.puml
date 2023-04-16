@@ -1,0 +1,30 @@
+@startuml
+!theme bluegray
+
+'https://plantuml.com/ja/activity-diagram-beta
+title Activity
+
+start
+:Init Game;
+:Draft Cards;
+while (Selected 7card?) is (no)
+    - Pick One Card and\nGive the rest to Next Player;
+endwhile (yes)
+
+:Start Game;
+
+while (Final Round?) is (no)
+    - Start Round
+    - Play Action
+    if (End of stage?) then (yes)
+        - Hervest
+        - Feed
+        - Breeding
+    else (no)
+    endif
+endwhile (yes)
+
+:Calc Score;
+
+stop
+@enduml

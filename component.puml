@@ -1,0 +1,34 @@
+@startuml
+!theme bluegray
+
+'https://plantuml.com/ja/component-diagram
+' https://plantuml.com/ja/deployment-diagram
+title Component
+
+package "agricola" {
+    component "cards" {
+        [improvements]
+        [occupations]
+    }
+    component "tests" {
+        [test_cards]
+        [test_pastures]
+    }
+    [gamesystem]
+}
+
+package "agent" {
+    agent sample_agent
+    agent AI
+}
+
+node "Node" {
+  database "Database" {
+    [store]
+  }
+  folder "Folder" {
+    [File]
+  }
+}
+
+@enduml

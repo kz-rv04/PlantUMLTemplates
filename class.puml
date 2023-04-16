@@ -1,0 +1,34 @@
+@startuml
+!theme bluegray
+
+' https://plantuml.com/ja/class-diagram
+title Class
+
+' abstract        abstract
+' abstract class  "abstract class"
+' annotation      annotation
+' circle          circle
+' ()              circle_short_form
+' class           class
+' diamond         diamond
+' <>              diamond_short_form
+' entity          entity
+' enum            enum
+' interface       interface
+' Extension	<|--	
+' Composition	*--	
+' Aggregation	o--	
+
+class EventGenerator
+class AgricolaGame
+class SimpleAgricolaGame
+class LessonsAgricolaGame
+class StandardAgricolaGame
+
+AgricolaGame <|-- EventGenerator
+SimpleAgricolaGame <|-- AgricolaGame
+LessonsAgricolaGame <|-- AgricolaGame
+StandardAgricolaGame <|-- AgricolaGame
+
+
+@enduml

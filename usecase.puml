@@ -1,0 +1,17 @@
+@startuml
+!theme bluegray
+
+'https://plantuml.com/ja/use-case-diagram
+title UseCase
+
+actor Player
+actor CPU
+
+Player --> (Drafting Card)
+Player -> (Play Game)
+CPU -> (Play Game)
+
+(Drafting Card) <.. (Occupation) : <<include>>
+(Drafting Card) <.. (Minor Improvement) : <<include>>
+
+@enduml

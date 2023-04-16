@@ -1,0 +1,44 @@
+@startuml
+!theme bluegray
+
+'https://plantuml.com/ja/sequence-diagram
+title Sequence
+
+main -> Game : Create Game(n_players)
+main -> UI : Create UI（GUI or TextUI）
+
+main -> Game : play
+
+Game -> Game : init
+Game -> UI: show
+
+group Draft [Occupations and MinorImprovements]
+    loop n_players
+        Player -> Occupations: draw_cards
+        Player -> MinorImprovements: draw_cards
+    end
+    loop hands < 7
+        Player -> Occupations: pick_card
+        Player -> MinorImprovements: pick_card
+        Player -> Player: give_cards(other Player)
+    end
+end
+Game -> Game : Start
+
+loop round != finalround
+    group Start Round
+        Game -> Action: active_actions
+        Game -> Player: change_start_player
+        Game -> UI: update
+    end
+    group Round Action
+        loop n_players
+            Game -> Player: start_turn
+            Player -> Choice: return action choice()
+            Player -> Action: action()
+            Game -> UI:update
+        end
+    end
+end
+
+@enduml

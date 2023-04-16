@@ -1,0 +1,28 @@
+@startuml
+!theme bluegray
+
+' https://plantuml.com/ja/object-diagram
+title Object
+
+' Extension	<|--	
+' Composition	*--	
+' Aggregation	o--	
+
+object game
+object object
+object ui
+object gui
+ui  <|-- object
+gui <|-- ui
+
+object Choice {
+    game = game
+    player = player
+    desc = desc
+
+    selected_candidate_idx = 0
+    candidates = []
+    summarized_candidates = candidates
+}
+
+@enduml

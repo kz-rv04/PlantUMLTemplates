@@ -1,0 +1,37 @@
+@startuml sample01
+
+title AWS Simple serverless architecture
+left to right direction
+
+' define and include
+!define AWSPuml https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/v10.0/dist
+
+!includeurl AWSPuml/AWSCommon.puml
+!includeurl AWSPuml/General/Client.puml
+!includeurl AWSPuml/GroupIcons/Cloudalt.puml
+!includeurl AWSPuml/ApplicationIntegration/APIGateway.puml
+!includeurl AWSPuml/Compute/Lambda.puml
+!includeurl AWSPuml/Database/RDS.puml
+!includeurl AWSPuml/AWSSimplified.puml
+!includeurl AWSPuml/ManagementGovernance/CloudWatch.puml
+
+' define icon
+Client(cloudWatch, clientUser, User, User client device)
+
+Cloudalt(aws, AWS, AWS) {
+  CloudWatch(cloudWatch, "CloudWatch", "CloudWatch")
+  APIGateway(apiGateway, "API Gateway", "API Gateway")
+  Lambda(lambda, "Lambda", "Lambda")
+  RDS(rds, "RDS", "RDS")
+}
+
+' 
+cloudWatch -[#red]--> lambda : Periodic Execution
+dataAPI <-[#red]-> lambda: Get Recent Data
+clientUser 0--> apiGateway: GET request
+apiGateway 0--> lambda: Invoke function
+apiGateway 0--> User: json Responce
+lambda <--> rds: Select or Update item
+lambda -[#red]-> rds: Update All Data
+
+@enduml

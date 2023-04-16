@@ -1,0 +1,18 @@
+@startuml
+!theme bluegray
+
+'https://plantuml.com/ja/state-diagram
+title State
+
+[*] --> wait
+wait -right-> active : my turn
+active -left-> wait :opponent turn
+wait -> stop :end game
+active -> stop :end game
+stop--> [*]
+
+wait:waiting to end opponent's turn
+active:thinking\nplay actions
+stop:end thinking\nstop actions
+
+@enduml
