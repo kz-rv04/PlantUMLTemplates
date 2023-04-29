@@ -1,0 +1,18 @@
+@startmindmap
+!theme bluegray
+
+'https://plantuml.com/ja/mindmap-diagram
+* System
+** CPU Unit
+** EIP
+*** XBus
+** Subsystem
+*** ECAT
+*** DB
+*** OPCUA
+*** CNC
+*** APB
+*** A I
+*** IoTGateway
+
+@endmindmap

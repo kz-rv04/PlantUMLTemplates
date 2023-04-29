@@ -1,0 +1,39 @@
+@startuml
+
+'https://plantuml.com/ja/timing-diagram
+
+clock   "SaveTrigger"   as C with period 20 pulse 5 offset 40
+binary  "CPU_Status"  as CPU
+concise "LogStatus" as C_Status
+robust  "LogStatus"  as R_Status
+
+
+@0
+C_Status is Stopped
+R_Status is Stopped
+
+@20
+CPU is high
+C_Status is Sampling
+R_Status is Sampling
+
+@40
+C_Status is Triggered
+R_Status is Triggered
+
+@45
+C_Status is Storing
+R_Status is Storing
+
+@50
+C_Status is Sampling
+R_Status is Sampling
+
+@60
+CPU is low
+C_Status is Stopped
+R_Status is Stopped
+
+@70
+
+@enduml

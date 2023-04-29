@@ -1,0 +1,32 @@
+@startwbs
+
+'https://plantuml.com/ja/wbs-diagram
+
+* project
+** define requirements
+*** write requirements definition document
+**** investigation
+**** make
+***** usecase
+*** review
+**** internal
+**** external
+*** revise
+**** deal with comments
+** design
+*** basic design
+**** component
+**** activity
+**** object
+*** detailed design
+**** class
+**** state
+**** sequence
+** implementation
+*** coding
+** evaluation
+*** unit test
+*** functional test
+*** system test
+
+@endwbs

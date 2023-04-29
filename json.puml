@@ -1,0 +1,13 @@
+@startjson
+{
+    "kind": "youtube#commentThreadListResponse",
+    "etag": "cLAzgsCLIvWTfepCYusthimXP48",
+    "nextPageToken": "Z2V0X...",
+    "pageInfo": {"totalResults": 100, "resultsPerPage": 100},
+    "contents": {
+        "title": "name01",
+        "detail": "test",
+        "users": ["Smith", "Bob", "Green"]
+    }
+}
+@endjson
